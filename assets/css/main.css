@@ -1,0 +1,68 @@
+.well {
+    /*box-shadow: 0 1px 6px rgba(0,0,0,.12),0 1px 6px rgba(0,0,0,.12) !important;*/
+    background-color: white;
+    border-radius: 0;
+}
+
+button, .btn  {
+    /*border-radius: 0;*/
+}
+
+.right {
+	float: right;
+}
+
+.left {
+	float: left;
+}
+
+.easyui-dialog div {
+	border: 0 !important;
+}
+
+.breadcrumb {
+	/*margin-bottom: 0;*/
+}
+.navbar-inverse {
+	background-color: rgb(33,150,243);
+	color: rgb(255,255,255);
+}
+
+.navbar-inverse .navbar-nav>li>a {
+	color: rgb(255,255,255);
+}
+
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus {
+	color: #fff;
+	background-color: rgb(33,143,243);
+}
+table{
+	border: 1px solid #ddd;
+	padding: 0px;
+	border-spacing: 1px;
+}
+th, tr, td{
+	height: 40px;
+	border:1px solid #ddd;
+	margin: 5px;
+    padding: 5px;
+}
+th {
+	align : center;
+	valign : middle;
+}
+td {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+}
+a.cur {
+	background-color: #fff;
+    border: 1px solid #ddd;
+    float: left;
+    line-height: 1.42857;
+    margin-left: -1px;
+    padding: 6px 12px;
+    position: relative;
+    text-decoration: none;
+	color:black;
+}

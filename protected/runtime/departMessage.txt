@@ -1,0 +1,108 @@
+没变的 id=>15 原来的depart=>技术部-数据智能           现在的depart=>技术部-数据智能	
+没变的 id=>84 原来的depart=>商家运营-商家生态           现在的depart=>商家运营-商家生态	
+没变的 id=>3 原来的depart=>时尚           现在的depart=>时尚	
+没变的 id=>17 原来的depart=>技术部-用户研发           现在的depart=>技术部-用户研发	
+没变的 id=>18 原来的depart=>技术部-商业产品研发           现在的depart=>技术部-商业产品研发	
+没变的 id=>109 原来的depart=>商家运营-商家营销           现在的depart=>商家运营-商家营销	
+没变的 id=>49 原来的depart=>商家运营-华南           现在的depart=>商家运营-华南	
+没变的 id=>24 原来的depart=>市场-市场部-品牌传播           现在的depart=>市场-市场部-品牌传播	
+没变的 id=>12 原来的depart=>产品营销-产品营销部-用户增长和营销           现在的depart=>产品营销-产品营销部-用户增长和营销	
+没变的 id=>60 原来的depart=>美妆运营-美妆线下招商           现在的depart=>美妆运营-美妆线下招商	
+没变的 id=>82 原来的depart=>商家运营-商家策略           现在的depart=>商家运营-商家策略	
+没变的 id=>54 原来的depart=>技术部-上海研发           现在的depart=>技术部-上海研发	
+没变的 id=>40 原来的depart=>商业运营-商业产品           现在的depart=>商业运营-商业产品	
+没变的 id=>69 原来的depart=>商业运营-商业运营-KA及品牌区域-上海           现在的depart=>商业运营-商业运营-KA及品牌区域-上海	
+没变的 id=>71 原来的depart=>商业运营-KA及品牌运营           现在的depart=>商业运营-KA及品牌运营	
+没变的 id=>50 原来的depart=>商家运营-华东           现在的depart=>商家运营-华东	
+没变的 id=>55 原来的depart=>商家运营-华北           现在的depart=>商家运营-华北	
+没变的 id=>62 原来的depart=>商家运营-商家客服           现在的depart=>商家运营-商家客服	
+没变的 id=>36 原来的depart=>商家运营-团购           现在的depart=>商家运营-团购	
+没变的 id=>126 原来的depart=>商家运营-全球潮流同款           现在的depart=>商家运营-全球潮流同款	
+没变的 id=>115 原来的depart=>微店-微店招商           现在的depart=>微店-微店招商	
+没变的 id=>108 原来的depart=>商家运营-商家产品           现在的depart=>商家运营-商家产品	
+没变的 id=>110 原来的depart=>商家运营-清仓           现在的depart=>商家运营-清仓	
+没变的 id=>107 原来的depart=>商家运营-商家转型           现在的depart=>商家运营-商家转型	
+没变的 id=>87 原来的depart=>HIGO-HIGO—HIGO运营           现在的depart=>HIGO-HIGO—HIGO运营	
+没变的 id=>113 原来的depart=>微店-新业务－微店           现在的depart=>微店-新业务－微店	
+没变的 id=>128 原来的depart=>商家运营-运营支持           现在的depart=>商家运营-运营支持	
+新增的 id=>1061 depart=>财务部-报告/主站业务	
+新增的 id=>1067 depart=>财务部-财务系统	
+新增的 id=>1231 depart=>财务部-资金	
+新增的 id=>1233 depart=>财务部-资金及结算/Higo、制造等业务线	
+新增的 id=>1053 depart=>人力资源部-ER	
+新增的 id=>1087 depart=>人力资源部-广州人力资源	
+新增的 id=>1089 depart=>人力资源部-杭州人力资源	
+新增的 id=>1105 depart=>人力资源部-技术BP组	
+新增的 id=>1169 depart=>人力资源部-上海人力资源	
+新增的 id=>1201 depart=>人力资源部-运营BP二组	
+新增的 id=>1203 depart=>人力资源部-运营BP一组	
+新增的 id=>1213 depart=>人力资源部-招聘策略	
+新增的 id=>1215 depart=>人力资源部-招聘组	
+新增的 id=>1235 depart=>人力资源部-组织发展与人才中心	
+新增的 id=>1245 depart=>人力资源部-HIGOBP组	
+新增的 id=>1069 depart=>行政-采购管理	
+新增的 id=>1071 depart=>行政-大型项目	
+新增的 id=>1099 depart=>行政-环境管理	
+新增的 id=>1189 depart=>行政-业务办理	
+新增的 id=>1199 depart=>行政-员工活动	
+新增的 id=>1229 depart=>行政-资产管理	
+新增的 id=>1167 depart=>商业运营-商业运营（全国）	
+新增的 id=>1177 depart=>商业运营-数据中心	
+新增的 id=>1185 depart=>商业运营-销售运营	
+新增的 id=>52 depart=>美妆运营-美妆线下	
+新增的 id=>127 depart=>市场-娱乐营销	
+新增的 id=>1083 depart=>市场-公关	
+新增的 id=>1103 depart=>市场-活动营销	
+新增的 id=>1135 depart=>市场-品牌管理	
+新增的 id=>1227 depart=>产品营销-主客户端产品	
+新增的 id=>1065 depart=>时尚运营-编辑组	
+新增的 id=>1115 depart=>时尚运营-类目二组	
+新增的 id=>1117 depart=>时尚运营-类目三组	
+新增的 id=>1119 depart=>时尚运营-类目一组	
+新增的 id=>1123 depart=>时尚运营-买手组	
+新增的 id=>1205 depart=>时尚运营-运营二组	
+新增的 id=>1207 depart=>时尚运营-运营三组	
+新增的 id=>1209 depart=>时尚运营-运营一组	
+新增的 id=>1059 depart=>华东供应链中心-板房	
+新增的 id=>1091 depart=>华东供应链中心-核价部	
+新增的 id=>1159 depart=>华东供应链中心-商品部	
+新增的 id=>1223 depart=>华东供应链中心-质检部	
+新增的 id=>75 depart=>平台运营部-平台运营-视觉创意	
+新增的 id=>1113 depart=>华南供应链中心-经营管理部	
+新增的 id=>1173 depart=>华南供应链中心-生产中心	
+新增的 id=>1187 depart=>华南供应链中心-研发中心	
+新增的 id=>92 depart=>HIGO-UI设计	
+新增的 id=>119 depart=>HIGO-HIGO市场	
+新增的 id=>125 depart=>HIGO-B2C	
+新增的 id=>129 depart=>HIGO-HIGO商家客服	
+新增的 id=>1101 depart=>HIGO-活动促销组	
+新增的 id=>1131 depart=>HIGO-内容运营	
+新增的 id=>1145 depart=>HIGO-商家侧产品	
+新增的 id=>1193 depart=>HIGO-用户侧产品	
+新增的 id=>1237 depart=>HIGO-C2C	
+新增的 id=>1239 depart=>HIGO-技术	
+新增的 id=>1263 depart=>HIGO-HIGO招商	
+新增的 id=>1107 depart=>交易产品-交易二组	
+新增的 id=>1111 depart=>支付产品-金融BD组	
+新增的 id=>1221 depart=>支付产品-支付运营组	
+新增的 id=>1075 depart=>规则与风控-反作弊	
+新增的 id=>1077 depart=>规则与风控-风控产品	
+新增的 id=>1079 depart=>规则与风控-风险控制	
+新增的 id=>1129 depart=>规则与风控-内部监察	
+新增的 id=>1161 depart=>规则与风控-商品品质	
+新增的 id=>1181 depart=>规则与风控-违规稽查	
+新增的 id=>1243 depart=>规则与风控-规则及监察	
+新增的 id=>1121 depart=>仓储物流-流程规划部	
+新增的 id=>1241 depart=>仓储物流-仓储部	
+新增的 id=>1073 depart=>用户客服-电话客服	
+新增的 id=>1081 depart=>用户客服-服务优化	
+新增的 id=>1143 depart=>用户客服-人事行政	
+新增的 id=>1183 depart=>用户客服-文字客服	
+新增的 id=>1225 depart=>用户客服-质量提升	
+新增的 id=>1255 depart=>微店-微店运营	
+新增的 id=>1261 depart=>微店-微店营销	
+新增的 id=>1063 depart=>法务部-北京法务	
+新增的 id=>1085 depart=>法务部-广州法务	
+新增的 id=>121 depart=>GR	
+新增的 id=>1139 depart=>创新产品-渠道拓展	
+新增的 id=>1663 depart=>CFO	

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<title>收藏夹接口</title>
+
+<xmp theme="united" style="display:none;">
+
+####通过以下接口，可以获得某人访问某路径时，该路径对应的功能，以及该路径对应的菜单，以及是否添加了收藏夹这些信息。
+
+
+####代码示例：    注：userid-->用户的speedid，url-->路径
+
+
+``` C
+
+    $url = "http://developer.meiliworks.com/WorkApi/getCollection?url=/export/index&userid=2139";
+    $output = Yii::app()->curl->get($url);
+    $output = json_decode($output['body'], true);
+    echo json_encode($output);
+
+```
+####获得如下信息       注：business-->平台名称，funname-->功能名称，status-->是否在收藏夹中，menu-->菜单
+``` C
+{
+    
+    {
+    "code": 1,
+    "results": {
+        "business": "developer",
+        "funname": "权限查看",
+        "status": false,
+        "menu": {
+            "first": "权限管理",
+            "second": "权限查看",
+            "third": ""
+        }
+    }
+}
+
+可通过这些信息来渲染自己的面包屑，判断收藏夹状态。
+```
+####添加收藏&删除收藏  注：可根据上一接口获得收藏夹状态，从而来判断是添加收藏，还是删除收藏
+####添加--    注：business-->平台名称，itemName-->功能名称，userid-->用户speedid，url-->添加收藏夹的路径
+``` C
+
+    $url = "http://developer.meiliworks.com/WorkApi/addCollection?url=/xxx/xxx&userid=2139&business=developer&itemName=功能名称";
+    $output = Yii::app()->curl->get($url);
+    $output = json_decode($output['body'], true);
+    echo json_encode($output);
+
+```
+``` C
+成功返回
+{
+    
+    {
+        "code": 1,
+        "message": "add success!"
+    }
+}
+
+```
+####删除--    注：business-->平台名称，itemName-->功能名称，userid-->用户speedid
+``` C
+
+    $url = "http://developer.meiliworks.com/WorkApi/deleteCollection?userid=2139&business=developer&itemName=功能名称";
+    $output = Yii::app()->curl->get($url);
+    $output = json_decode($output['body'], true);
+    echo json_encode($output);
+
+```
+``` C
+成功返回
+{
+    {
+        "code": 1,
+        "message": "delete success!"
+    } 
+}
+
+```
+
+</xmp>
+
+<script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
+</html>

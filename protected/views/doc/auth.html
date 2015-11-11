@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<title>权限认证</title>
+
+<xmp theme="united" style="display:none;">
+
+####通过权限验证接口，开发者可以进行更细粒度的权限控制。
+
+
+我们在<code>项目发布/功能管理</code>页面创建的每个功能可以看做一个**权限集合**，权限平台所有的权限操作都是针对功能进行的。
+其对应的权限点为<code>项目名称/功能名称</code>（eg： developer/项目发布）.
+
+为**功能**添加的action为一系列小的权限点，其权限点为<code>项目名称/actions/namespace/point</code>, 例如当我们需要控制每个接口的访问权限时，我们需要把每个功能用到的接口作为action添加到功能中，对于site/index这个页面，其对应的权限点就应该为 <code>developer/actions/site/index</code>
+
+####代码示例：判断用户是否有developer的项目发布功能
+
+
+``` C
+    // 权限点
+    $point = 'developer/项目发布';
+    // speed 账号体系的用户id
+    $uid = $this->speed['id'];
+    $url = "http://developer.meiliworks.com/api/checkAccess?point=$point&uid=$uid";
+    $output = Yii::app()->curl->get($url);
+    $output = json_decode($output['body'], true);
+
+    if ($output['code']==1 && $output['data']['checked']) {
+        // code 有权限
+    } else {
+        // code 没权限
+    }
+```
+</xmp>
+
+<script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
+</html>

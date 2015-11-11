@@ -1,0 +1,33 @@
+{/include file="layouts/header.tpl"/}
+
+<style type="text/css">  
+.indent{text-indent: 2em;}   
+</style>  
+
+	<div class="container"><h1 id="developer-menu-doc">添加新项目文档</h1>
+	<p class="indent">在权限平台接入新的项目流程介绍和接入中的常见问题。</p>
+	<hr>
+	<h4>一、前台接入：</h4>
+	<p class="indent"><a href='http://developer.meiliworks.com/doc/index?name=newfunction' target="_blank">前台接入文档</a>；</p>
+	<h4>二、开发需要做的工作</h4>
+	<p class="indent" >1、用yii框架</p>
+	<p class="indent">查看framework/components/Controller.php文件中是否有下图代码；如果有在自己的文件中define <font color="blue">CHECKACCESS为true</font>和<font color="blue">PROJECT为你的项目名</font></p>
+	<p class="indent" ><img alt="添加功能图" src="../../../assets/images/doc/daima.png"></p>
+	<p class="indent" >2、非yii框架和框架没有封装权限验证的情况，<a target="_blank" href="http://developer.meiliworks.com/doc/index?name=auth">参考调用权限接口的文档</a></p>
+	<p class="indent" ><font color="red">*注：</font>如果已经分配了权限但是调用接口发现返回没权限，请在<b>项目发布－>项目管理</b>中对应项目的<b>功能管理</b>页找到对应的功能，点击<b>添加action</b>按钮看功能是否有action，具体如下图所示：</p>
+	<p class="indent" ><img alt="添加菜单入口" src="../../../assets/images/doc/action.png"></p>
+	<p class="indent" >3、菜单展现</p>
+	<p class="indent" ><a target="_blank" href="http://developer.meiliworks.com/doc/index?name=menu">获取菜单接口文档</a></p>
+	<h4>三、注意事项</h4>
+	<p class="indent" ><font color="gray">1、创建了项目但是没有权限：</font></p>
+	<p class="indent" >在创建项目的时对应的<b>开发人</b>是有项目的所有权限的，建议负责任和开发者都添加为开发者（多个开发者用半角逗号','隔开），这样方便查看</p>
+	<p class="indent" ><font color="gray">2、功能希望所有人可见：</font></p>
+	<p class="indent" >请在<b>项目发布－>项目管理</b>对应的项目下,选中自己的项目，点击<b>白名单管理</b>来添加白名单，白名单功能不进行权限验证</p>
+	<p class="indent" ><font color="gray">3、功能下有操作，希望可以对功能分配权限后，相应人员有操作的权限：</font></p>
+	<p class="indent" >给对应的功能添加action</p>
+	<p class="indent" ><font color="gray">4、希望页面的展现和操作等权限分开管理</font></p>
+	<p class="indent" >将操作添加为一个新的功能，然后对其进行权限管理</p>
+	<p >还有问题请咨询 戚玲玲，QQ：741605369，电话：13810315838</p>
+</body>
+
+</html>

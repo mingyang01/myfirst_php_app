@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>developer menu doc</title>
+<link rel="stylesheet" href="/assets/lib/doc/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+
+<div class="container"><h1 id="developer-menu-doc">developer menu doc</h1>
+
+<p>权限管理平台通过http接口提供菜单管理，权限过滤等功能，以下内容将说明如何使用我们的接口,另外我们还提供一个代码示例供参考.</p>
+
+<hr>
+
+
+
+<h2 id="1-接口说明">1 接口说明</h2>
+
+
+
+<h4 id="地址">地址</h4>
+
+<blockquote>
+  <p><strong><a href="http://developer.meiliworks.com/ExtraApi/menu?business=xxx&amp;uid=xxx&amp;domain=xxx&amp;cbusiness=xxx">http://developer.meiliworks.com/ExtraApi/menu?business=xxx&amp;uid=xxx&amp;domain=xxx</a></strong></p>
+</blockquote>
+
+<table>
+<thead>
+<tr>
+  <th>参数</th>
+  <th>说明</th>
+  <th>必须</th>
+  <th>补充</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>business</td>
+  <td>业务名称</td>
+  <td>非，默认是全部</td>
+  <td>不传入此参数时将返回所有业务平台的菜单</td>
+</tr>
+<tr>
+  <td>uid</td>
+  <td>用户id</td>
+  <td>是</td>
+  <td>系统接入speed账号体系</td>
+</tr>
+<tr>
+  <td>domain</td>
+  <td>链接中是否包含域名</td>
+  <td>是</td>
+  <td>true 包含域名 false 只有路径，在cbusiness没传或者为global时，需要传入true</td>
+</tr>
+</tbody></table>
+
+
+
+
+<h4 id="返回">返回</h4>
+
+
+
+<pre class="prettyprint"><code class=" hljs json">[
+    {
+        "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"项目发布"</span></span>,
+        "<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">"/publish/index"</span></span>,
+        "<span class="hljs-attribute">child</span>": <span class="hljs-value">[]</span>,
+        "<span class="hljs-attribute">business</span>": <span class="hljs-value"><span class="hljs-string">"developer"</span>
+    </span>},
+    {
+        "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"权限管理"</span></span>,
+        "<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">"/auth/index"</span></span>,
+        "<span class="hljs-attribute">child</span>": <span class="hljs-value">[
+            {
+                "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"角色管理"</span></span>,
+                "<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">"/auth/index"</span></span>,
+                "<span class="hljs-attribute">child</span>": <span class="hljs-value">[]
+            </span>},
+            {
+                "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"权限分配"</span></span>,
+                "<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">"/auth/distribution"</span></span>,
+                "<span class="hljs-attribute">child</span>": <span class="hljs-value">[]
+            </span>}
+        ]</span>,
+        "<span class="hljs-attribute">business</span>": <span class="hljs-value"><span class="hljs-string">"developer"</span>
+    </span>},
+    {
+        "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"开发文档"</span></span>,
+        "<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">"/doc/index?name=menu"</span></span>,
+        "<span class="hljs-attribute">child</span>": <span class="hljs-value">[
+            {
+                "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"菜单开发"</span></span>,
+                "<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">"/doc/index?name=menu"</span></span>,
+                "<span class="hljs-attribute">child</span>": <span class="hljs-value">[]
+            </span>},
+            {
+                "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"权限认证"</span></span>,
+                "<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">"/doc/index?name=auth"</span></span>,
+                "<span class="hljs-attribute">child</span>": <span class="hljs-value">[]
+            </span>}
+        ]</span>,
+        "<span class="hljs-attribute">business</span>": <span class="hljs-value"><span class="hljs-string">"developer"</span>
+    </span>}
+]
+</code></pre>
+
+
+
+<h2 id="2-代码示例">2 代码示例</h2>
+
+<p>由于接口是通过http提供，你可以使用cUrl等lib获取菜单数据，下面将以php curl示例：</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs bash"><span class="hljs-variable">$url</span> = <span class="hljs-string">"http://developer.meiliworks.com/extraapi/menu?business=global&domain=true&uid=xxx&cbusiness=works"</span>;
+<span class="hljs-variable">$agent</span> = <span class="hljs-string">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.94 Safari/537.36"</span>;
+<span class="hljs-variable">$ch</span> = curl_init(<span class="hljs-variable">$url</span>);
+curl_setopt(<span class="hljs-variable">$ch</span>, CURLOPT_USERAGENT, <span class="hljs-variable">$agent</span>);
+curl_setopt(<span class="hljs-variable">$ch</span>, CURLOPT_RETURNTRANSFER, <span class="hljs-literal">true</span>);
+curl_setopt(<span class="hljs-variable">$ch</span>, CURLOPT_BINARYTRANSFER, <span class="hljs-literal">true</span>); 
+<span class="hljs-built_in">echo</span> <span class="hljs-variable">$output</span> = curl_<span class="hljs-keyword">exec</span>(<span class="hljs-variable">$ch</span>); </code></pre>
+
+<blockquote>
+  <p>注意: 以上仅是代码示例，没有做必要的错误处理. 另外设置agent是必要的，因为平台会过滤用户的agent</p>
+</blockquote>
+
+
+<h2 id="3-渲染菜单">3 渲染菜单</h2>
+
+<p>获取到数据后，你就可以根据需要渲染菜单了，为了方便大家开发，这里也提供一份代码示例.</p>
+
+<blockquote>
+  <p>注意： 代码使用了smarty模板引擎，以及bootstrap 3 样式表，如果你没有这些设施，也可以参考此代码，迅速开发出适合你的菜单模板.</p>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class=" hljs xml">{/assign var='navbox' value=MenuManager::getMenu("developer", $uid)/}
+<span class="hljs-tag">&lt;<span class="hljs-title">header</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"navbar-inverse"</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"top"</span> <span class="hljs-attribute">role</span>=<span class="hljs-value">"banner"</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">"margin-bottom:20px;"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"navbar-header"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"navbar-brand"</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"/"</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">"color:white"</span>&gt;</span>权限管理平台<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-title">nav</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"collapse  navbar-collapse"</span> <span class="hljs-attribute">role</span>=<span class="hljs-value">"navigation"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"nav navbar-nav"</span>&gt;</span>
+        {/foreach from=$navbox item=it key=key/}
+            <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"dropdown"</span> &gt;</span>
+                {/if count($navbox[$key].child) gt 0/}
+                    <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"#"</span> <span class="hljs-attribute">data-toggle</span>=<span class="hljs-value">"dropdown"</span>  <span class="hljs-attribute">class</span>=<span class="hljs-value">"dropdown-toggle"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"text"</span>&gt;</span>{/$navbox[$key].name/}<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">b</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"caret"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">b</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+                {/else/}
+                    <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"{/$navbox[$key].url/}"</span> &gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"text"</span>&gt;</span>{/$navbox[$key].name/}<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+                {//if/}
+                <span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"dropdown-menu"</span>&gt;</span>
+                {/foreach from=$navbox[$key].child item=i key = u name=list/}
+                    {/if $navbox neq ""/}
+                        <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">title</span>=<span class="hljs-value">""</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"{/$navbox[$key].child.$u.url/}"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">i</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"icon-bar-chart"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">i</span>&gt;</span> {/$navbox[$key].child.$u.name/}<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                    {//if/}
+                    {/if $smarty.foreach.list.last/}
+                    {/else/}
+                        <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"divider"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                    {//if /}
+                {//foreach/}
+                <span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+        {//foreach/}
+        <span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"nav navbar-nav navbar-right"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">li</span>  <span class="hljs-attribute">class</span>=<span class="hljs-value">"dropdown"</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"profile-messages"</span> &gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">title</span>=<span class="hljs-value">""</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"#"</span> <span class="hljs-attribute">data-toggle</span>=<span class="hljs-value">"dropdown"</span> <span class="hljs-attribute">data-target</span>=<span class="hljs-value">"#profile-messages"</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"dropdown-toggle"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">i</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"icon icon-user"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">i</span>&gt;</span>  <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"text"</span>&gt;</span>{/Yii::app()-&gt;user-&gt;name/}<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">b</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"caret"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">b</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"dropdown-menu"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">target</span>=<span class="hljs-value">"_blank"</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"http://speed.meilishuo.com/user/profile/"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">i</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"icon-user"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">i</span>&gt;</span> 个人信息<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"divider"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">target</span>=<span class="hljs-value">"_blank"</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"http://speed.meilishuo.com/time/time_manage"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">i</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"icon-check"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">i</span>&gt;</span> 我的日程<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"divider"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"/site/logout"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">i</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"icon-key"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">i</span>&gt;</span> 退出登录<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">""</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">title</span>=<span class="hljs-value">""</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"/site/logout"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">i</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"icon icon-share-alt"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">i</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"text"</span>&gt;</span>退出登录<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">nav</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">header</span>&gt;</span>
+</code></pre></div></body>
+</html>

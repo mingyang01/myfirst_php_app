@@ -1,0 +1,134 @@
+{/include file="layouts/header.tpl"/}
+<script type="text/javascript" src="/assets/js/bootstrap-datepicker.js"></script>
+<style type="text/css" src="/assets/css/datepicker.css"></style>
+<script src="/assets/js/bufferview.js"></script>
+<div class="container cont">
+	<div class="panel">
+        <ol class="breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li class="active">用户审计</li>
+        </ol>
+     </div>
+     <div class="row">
+		<div id="search_form" class="well">
+            <form class="form-horizontal" role="form" id="form">
+            	<div class="form-group">
+                    <label class="col-md-1 control-label">操作人：</label>
+                    <div class="col-md-2">
+                    	<input type="text" value="{/$user/}" class="form-control" id="user" name="user" placeholder="邮箱前缀(可选)">
+                    </div>
+	                <label class="col-md-2 control-label">被操作人或角色：</label>
+	                <div class="col-md-2">
+	                    <input type="text" value="{/$optuser/}" class="form-control" id="optuser" name="optuser" placeholder="邮箱前缀或者角色名(可选)">
+	                </div>
+	                <label class="col-md-2 control-label">操作对象：</label>
+	                <div class="col-md-2">
+	                    <input type="text" value="{/$optfunction/}" class="form-control" id="optfunction" name="optfunction" placeholder="功能名(可选)">
+	                </div>
+	            </div>
+	            <div  class="form-group">
+	            	<label class="col-md-1 control-label">&nbsp;&nbsp;动作：</label>
+	                 <div class="col-md-2">
+	                    <select class="form-control" id="opttype" name="opttype">
+		                    {/foreach from=$types key=key item=item/}
+		                     	<option {/if $key eq $type/}selected{//if/}  value="{/$key/}">{/$item/}</option>
+		                    {//foreach/}
+		                </select>
+	                </div>
+	            	<label class="col-md-2 control-label">&nbsp;&nbsp;开始时间：</label>
+	            	<div class="col-md-2  date datepicker">
+	                    <input type="text" id="start" name="start" value="{/$start/}"  data-date-format="yyyy-mm-dd">
+	                    <span class="glyphicon glyphicon-calendar add-on"></span>  
+	                </div>
+	                <label class="col-md-2 control-label">结束时间：</label>
+	                <div class="col-md-2  date datepicker">
+	                    <input id="end" name="end" type="text" value="{/$end/}" data-date-format="yyyy-mm-dd">
+	                    <span class="glyphicon glyphicon-calendar add-on"></span>  
+	                </div>
+	                	&nbsp;&nbsp;<button id="submit" class="btn btn-default">查看</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row bodylist">
+        <table class="table table-hover table-striped table-bordered table-condensed">
+            <thead>
+                <tr align="center">
+                <th width="10%">用户</th>
+                    <th width="20%">动作</th>
+                    <th width="20%">被操作人或者角色</th>
+                    <th width="30%">被操作权限点</th>
+                    <th width="20%">操作时间</th>
+                </tr>
+            </thead>
+            {/foreach from=$data item=item key-key/}
+            <tr>
+                <td>{/$item.user/}</td>
+                    <td>{/$item.type/}</td>
+                    <td>{/$item.optobject/}</td>
+                    <td>{/$item.optfunname/}</td>
+                    <td>{/$item.time/}</td>
+                </tr>
+            {/foreachelse/}
+            	<tr><td>没有数据</td></tr>
+            {//foreach/}
+        </table>
+    </div>
+</div>
+<!--分页-->
+    {/if $totalNum gt 20/}
+    <div class="panel">
+        <div class="panel-body">
+            <div style="text-align:center">
+                <ul class="pagination">
+                    <li><a>共{/$totalNum/}条记录</a></li>
+                    <li><a>总共{/$pageInfo.totalPage/}页</a></li>
+                    <li><a href="{/$pageInfo.firstLink/}">首页</a></li>
+                    {/if $pageInfo.prevPage >= 1/}
+                    <li><a href="{/$pageInfo.prevLink/}">上一页</a></li>
+                    {//if/}
+                    {/foreach from=$pageInfo.pageNumList item=item key=key/}
+                    	{/if $page eq $key/}
+                    		<li><a href="javascript:return false;" class="cur">{/$key/}</a></li>
+                    	{/else/}
+                    		<li><a href="{/$item/}">{/$key/}</a></li>
+                    	{//if/}
+                    {//foreach/}
+                    {/if $pageInfo.nextPage <= $pageInfo.totalPage/}
+                    <li><a href="{/$pageInfo.nextLink/}">下一页</a></li>
+                    {//if/}
+                    <li><a href="{/$pageInfo.lastLink/}">最后一页</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {//if/}  
+<div  class="row">
+ aaaa
+</div>
+  
+</div>
+<script>
+    $(function(){
+        $('.datepicker').datepicker({
+            format: "yyyy-mm-dd",
+            autoclose: true
+        }).on('changeDate', function(ev){
+            $(this).datepicker('hide');
+        });
+
+	$('#submit').click(function (e){
+		var user=$('#user').val();
+		var optuser=$('#optuser').val();
+		var opttype=$('opttype').val();
+		var optfunction=$('#optfunction').val();
+		var start=$('#start').val();
+		var end=$('#end').val();
+		
+		window.location.href ="/Audit/Index?user="+user+"&opttype="+opttype+"&optuser="+optuser+"&optfunction="+optfunction+"&start="+start+"&end="+end;
+		
+    });
+
+    });
+
+</script>
